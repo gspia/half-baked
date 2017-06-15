@@ -28,6 +28,14 @@ things work, we need getHTMLInputRef (see Main) that mimicks
 This leads to somewhat long route to be able to load files and use them. And to
 a lot of questions (see Main).
 
+Note that
+[web-audio-demo-player](https://github.com/justinwoo/purescript-web-audio-player-demo)
+and associated
+[blog-post](http://qiita.com/kimagure/items/653c52e77d7cd3567498) seem to
+answer some of the questions posed in Main (-> update this readme & main TBD).  
+It uses, e.g. [createObjectURL](https://pursuit.purescript.org/packages/purescript-dom/4.5.0/docs/DOM.HTML.URL#v:createObjectURL)
+that seams to lead much clearer structure (-> try it TBD).
+
 
 
 ## Compilation

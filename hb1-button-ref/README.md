@@ -27,6 +27,12 @@ comments on
 [Halogen.Query.InputF](https://pursuit.purescript.org/packages/purescript-halogen/2.1.0/docs/Halogen.Query.InputF) 
 defines `RefLabel`. Its usage, however, wasn't instantly clear based on the docs.)
 
+Note that
+[web-audio-demo-player](https://github.com/justinwoo/purescript-web-audio-player-demo)
+and associated
+[blog-post](http://qiita.com/kimagure/items/653c52e77d7cd3567498) seem to
+answer some of the questions posed in Main (-> update this readme & main TBD). 
+
 
 
 ## Compilation
