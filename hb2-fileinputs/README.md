@@ -38,7 +38,8 @@ that seams to lead much clearer structure (-> try it TBD).
 
 Moreover,
 [fileselector](https://github.com/jacereda/purescript-halogen-fileselector)
-seems to answer many of the questions. (-> try it TBD)
+and [filepicker](https://github.com/zudov/purescript-halogen-filepicker)
+seems to answer many of the questions. (-> try them TBD)
 
 
 
