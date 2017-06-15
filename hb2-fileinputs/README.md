@@ -36,6 +36,10 @@ answer some of the questions posed in Main (-> update this readme & main TBD).
 It uses, e.g. [createObjectURL](https://pursuit.purescript.org/packages/purescript-dom/4.5.0/docs/DOM.HTML.URL#v:createObjectURL)
 that seams to lead much clearer structure (-> try it TBD).
 
+Moreover,
+[fileselector](https://github.com/jacereda/purescript-halogen-fileselector)
+seems to answer many of the questions. (-> try it TBD)
+
 
 
 ## Compilation
