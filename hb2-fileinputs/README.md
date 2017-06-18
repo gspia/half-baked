@@ -59,7 +59,9 @@ Go to dist dir and open index.html with your browser, open select file input
 dialog, select one or more files, and look at the console messages (e.g.
 ctr-shift-i) and see what's happening.
 
-## Other notes
 
-While writing these notes, both [Pursuit](https://pursuit.purescript.org/) and
-[MDN](https://developer.mozilla.org/en-US/docs/Web) were open at the same time.
+## Links                                                                                                      
+                                                                                                              
+- [Pursuit](https://pursuit.purescript.org/)                                                                  
+- [MDN](https://developer.mozilla.org/en-US/docs/Web)                                                         
+- [Google web](https://developers.google.com/web/)   

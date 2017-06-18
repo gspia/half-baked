@@ -2,7 +2,7 @@
 
 A series of half-baked things hopefully less half-baked later. These came out
 when I was trying to find solutions to different problems when working with
-[Purescript](http://www.purescript.org/) and [Haskell](://www.haskell.org/). My
+[Purescript](http://www.purescript.org/) and [Haskell](https://www.haskell.org/). My
 intention is to occasionally update the sample list while learning.
 
 Some of the following may work as examples or quick starting points, in case
@@ -27,4 +27,6 @@ Especially:
    and associated [blog-post](http://qiita.com/kimagure/items/653c52e77d7cd3567498). It seems to 
    answer some of the questions posed in Main (-> update TBD).
 
+3. [Purescript Halogen client and Haskell Snap server](https://github.com/gspia/half-baked/tree/master/hb3-filesending).
+   How to upload a file or files to server using websockets?
 

@@ -1,0 +1,4 @@
+packages: hb3-filesending.cabal 
+
+package hb3-filesending
+  optimization: False

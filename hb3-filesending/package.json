@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "pulp build --to static/app.js",
+    "watch": "pulp -w build --to static/app.js"
+  },
+  "devDependencies": {
+    "pulp": "^11.0.0",
+    "purescript": "^0.11.5",
+    "purescript-psa": "^0.5.1"
+  }
+}
