@@ -1,11 +1,12 @@
 {-
-  Idea shortly: select several files and print their names.
+  Idea shortly: select several files and print their names, sizes and contents.
   This is based on fileinput-example at reflex-examples.
   https://github.com/reflex-frp/reflex-examples
   This works with reflex-platform https://github.com/reflex-frp/reflex-platform
 
   Questions: some of the type errors were quite difficult. -> why they occur &
   what they mean? They can be tried by making little changes below.
+  How to structure the program?
 -}
 {-# LANGUAGE RecursiveDo, TypeFamilies, FlexibleContexts, OverloadedStrings, ScopedTypeVariables #-}
 
@@ -22,18 +23,25 @@ import Control.Monad.Trans
 import Control.Monad
 import GHCJS.Marshal
 import GHCJS.Types
+import GHCJS.DOM.Blob
 import GHCJS.DOM.FileReader
 import GHCJS.DOM.File (getName)
 import GHCJS.DOM.Types (File, UIEvent, liftJSM, MonadJSM, FromJSString)
 import GHCJS.DOM.EventM
 import Language.Javascript.JSaddle.String (textFromJSString)
+import GHC.Word (Word64)
 
-fileInfo :: MonadJSM m => File -> m Text
-fileInfo request = fmap textFromJSString $ getName request
+fileName :: MonadJSM m => File -> m Text
+fileName request = fmap textFromJSString $ getName request
+
+-- getSize
+fileSize :: (MonadJSM m, IsBlob self) => self -> m GHC.Word.Word64
+fileSize fl = getSize fl
+
 
 getFNames :: (PerformEvent t m, MonadJSM (Performable m))
           => Dynamic t [File] -> m (Event t [Text])
-getFNames fDyn = performEvent $ fmap (sequence . fmap fileInfo) . updated $ fDyn
+getFNames fDyn = performEvent $ fmap (sequence . fmap fileName) . updated $ fDyn
 
 main :: IO ()
 main = mainWidget $ do
@@ -57,18 +65,50 @@ main = mainWidget $ do
       text l
       el "br" blank
   --
+  let evfs :: Event (SpiderTimeline Global) [File] = updated filesDyn
+  el "div" . widgetHold blank . ffor evfs $ \fls -> do
+    forM_ fls $ \f -> do
+      text "The filename is  "
+      fn <- fileName f
+      text fn
+      el "br" blank
+      --
+      text "The file size is "
+      fz <- fileSize f
+      text $ T.pack . show $ fz
+      el "br" blank
+      --
+      text "The file contents are: "
+      el "br" blank
+      e <- textFR f
+      widgetHold (text "no files were selected") $ ffor e $ \e' -> text (T.pack $ show e')
+      el "br" blank
+  el "br" blank
+
   -- fnamesD :: Dynamic (SpiderTimeline Global) [Text] <- getFNames2 filesDyn
   -- The above line does not compile, why?
   -- ghci's error msg is: Couldn't match type
   -- ‘DomBuilderSpace (Dynamic (SpiderTimeline Global))’ with ‘GhcjsDomSpace’
-  -- arising from a use of ‘getFNames2’. This quite close to in reflex-frp-docs:
-  -- see,
+  -- arising from a use of ‘getFNames2’. This is quite close to the one
+  -- in reflex-frp-docs, see
   -- http://reflex-frp.readthedocs.io/en/latest/guide_to_dom_creation.html#troubleshooting-type-class-errors
   -- The following does not help:
   -- let fnamesE2 = updated fnamesD
   -- el "div" . widgetHold blank . ffor fnamesE2 $ \fnms -> do
   --   text $ (T.pack . show) fnms
   footer
+
+textFR :: MonadWidget t m => File -> m (Event t (Maybe Text))
+textFR f = do
+  fileReader <- liftJSM newFileReader
+  -- readAsText fileReader (Just f) (Nothing :: Maybe T.Text)
+  readAsText fileReader (Just f) (Just "utf-8":: Maybe T.Text)
+  e <- wrapDomEvent fileReader (`on` loadEnd) . liftJSM $ do
+     v <- getResult fileReader
+     s <- (fromJSVal <=< toJSVal) v
+     return s
+  return e
+
 
 --------------------------------------------------------------------------------
 -- Trying out things to learn about the types.
@@ -100,10 +140,10 @@ fdyn2 = value <$> fdyn1
 --------------------------------------------------------------------------------
 -- Instead of turning a file into a text in a context, we turn a file into a
 -- text inside context.
-fileInfo2 :: (MonadJSM m, MonadFix m, MonadHold t m,
+fileName2 :: (MonadJSM m, MonadFix m, MonadHold t m,
       DomBuilder t m, PostBuild t m, DomBuilderSpace m ~ GhcjsDomSpace
              ) => m File -> m Text
-fileInfo2 evF = ((fmap textFromJSString) . join . (fmap getName)) evF
+fileName2 evF = ((fmap textFromJSString) . join . (fmap getName)) evF
 
 -- The following is hand made. In fdyn2, ghci suggested a type where instead of
 -- m there was another layer of dynamics. But by just replacing each of them
@@ -122,15 +162,15 @@ getFNames2
       MonadFix (Dynamic t), Monad m, MonadHold t (Dynamic t),
       PostBuild t (Dynamic t), MonadJSM (Dynamic t), DomBuilder t (Dynamic t))
     => Dynamic t [File] -> m (Dynamic t [Text])
-getFNames2 evF = return $ join $ simpleList evF fileInfo2
+getFNames2 evF = return $ join $ simpleList evF fileName2
 
 
 --------------------------------------------------------------------------------
 -- hoogle tells that there is a function fromJSString at GHCJS.DOM.Types.
 -- Let's try it, too.
-fileInfo3 :: (MonadJSM m, FromJSString (Reflex.Dom.JSRef x), MonadJS x m)
+fileName3 :: (MonadJSM m, FromJSString (Reflex.Dom.JSRef x), MonadJS x m)
           => File -> m Text
-fileInfo3 request = do
+fileName3 request = do
   fn <- getName request
   fmap T.pack $ fromJSString fn
 
@@ -144,7 +184,7 @@ fileInfo3 request = do
 getFNames3 :: (PerformEvent t1 m, MonadJSM (Performable m),
       FromJSString (Reflex.Dom.JSRef x), MonadJS x (Performable m))
   => Dynamic t1 [File] -> m (Event t1 [Text])
-getFNames3 fDyn = performEvent $ fmap (sequence . fmap fileInfo3) . updated $ fDyn
+getFNames3 fDyn = performEvent $ fmap (sequence . fmap fileName3) . updated $ fDyn
 
 
 --------------------------------------------------------------------------------

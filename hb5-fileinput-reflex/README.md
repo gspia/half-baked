@@ -6,7 +6,7 @@ How to implement with reflex approximately the same things as in
 [hb2](https://github.com/gspia/half-baked/tree/master/hb2-fileinputs)
 
 That is, how use file open -dialog and select several files. After 
-that we output each file name.
+that we output each file name, its size and contents.
 
 
 ## Compilation
