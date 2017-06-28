@@ -15,8 +15,9 @@ server. The client is written in [Purescript](http://www.purescript.org/)
 and [Halogen](https://pursuit.purescript.org/packages/purescript-halogen/2.1.0/docs/Halogen).
 And to a lot of questions (see Main).
 
-Server is written in [Haskell](https://www.haskell.org/) and 
-[snap-framework](http://snapframework.com/) and at its [libs](http://hackage.haskell.org/packages/search?terms=snap).
+Server is written in [Haskell](https://www.haskell.org/) and
+[snap-framework](http://snapframework.com/) and with its
+[libs](http://hackage.haskell.org/packages/search?terms=snap).
 
 
 Things TBD: 
