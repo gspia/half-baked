@@ -22,7 +22,7 @@ Things TBD/questions:
 First, start the try-reflex and then cd to the hb6-directory.
 
 ```
-ghcjs src/Main.hs
+ghcjs client/Main.hs
 ```
 
 This is tested with reflex-platform (with try-reflex). My ghcjs version
