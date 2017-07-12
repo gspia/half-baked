@@ -13,6 +13,8 @@ Things TBD/questions:
 - The ArrayBuffer can probably be used with bsFromMutableArrayBuffer e.g.
   (not done yet as the structure where this would be applied is probably not ok).
 - How to do this with Generics and JSON messages (this would require server changes as well)?
+- GHCJS.DOM.WebSockets were used, JSaddle one TBD.
+- How to organize cabal-files in this kind of setting? (TBD)
 
 
 ## Compilation
