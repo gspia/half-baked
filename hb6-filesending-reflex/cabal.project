@@ -1,0 +1,4 @@
+packages: hb6-filesending.cabal 
+
+package hb6-filesending
+  optimization: False

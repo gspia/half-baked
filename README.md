@@ -37,3 +37,9 @@ Especially:
 
 5. [Reflex - fileinput](https://github.com/gspia/half-baked/tree/master/hb5-fileinput-reflex).
    This does approximately the same things as sample 2 with Purescript.
+
+6. [Reflex - file upload](https://github.com/gspia/half-baked/tree/master/hb6-filesending-reflex).
+   This does approximately the same things as sample 3 with Purescript.
+   Note that the server is essentially the same in both.
+
+
