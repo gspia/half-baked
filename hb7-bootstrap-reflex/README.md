@@ -1,9 +1,9 @@
 
 # hb7 - bootstrap-reflex
 
-This time we want to apply bootstrap 4 (alpha6) and build a project 
+This time we want to apply bootstrap 4 (alpha6) and build a project
 with cabal. We imitate barebones of the dashbore-example as seen at
-the [bs4 dashboard example](https://v4-alpha.getbootstrap.com/examples/dashboard/) 
+the [bs4 dashboard example](https://v4-alpha.getbootstrap.com/examples/dashboard/)
 or at [bs4 guide example](https://www.codeply.com/go/KrUO8QpyXP/bootstrap-4-dashboard)
 (see [boostrap4.guide](http://bootstrap4.guide/examples.html)).
 
@@ -53,17 +53,17 @@ dist/build/bs4reflex/bs4reflex.jsexe/css/styles.css
 dist/build/bs4reflex/bs4reflex.jsexe/js/scripts.js
 ```
 
-Bootstrap uses jQuery and Tether and some javascript of its own. I didn't 
-get them working by generating the script-tags programmatically but including 
-the script-tags directly in the index.html-file worked. So, either copy 
+Bootstrap uses jQuery and Tether and some javascript of its own. I didn't
+get them working by generating the script-tags programmatically but including
+the script-tags directly in the index.html-file worked. So, either copy
 ```
-html/index.html 
+html/index.html
 ```
-to 
+to
 ```
 dist/build/bs4reflex/bs4reflex.jsexe/index.html
 ```
-or edit the file. (See [boostrap 4](https://v4-alpha.getbootstrap.com/). 
+or edit the file. (See [boostrap 4](https://v4-alpha.getbootstrap.com/).)
 The other stylesheet-links
 and script-tag for scripts.js are generated in the Main.hs.  The
 copied index.html contains links to the aforementioned styles.css and
