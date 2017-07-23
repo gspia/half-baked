@@ -42,4 +42,5 @@ Especially:
    This does approximately the same things as sample 3 with Purescript.
    Note that the server is essentially the same in both.
 
-
+7. [Reflex - bootstrap 4](https://github.com/gspia/half-baked/tree/master/hb7-boostrap-reflex).
+   Apply boostrap css and build a small ui with fixed top nav and side bar.
