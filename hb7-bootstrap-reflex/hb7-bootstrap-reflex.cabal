@@ -1,7 +1,7 @@
-name:                hb7-boostrap-reflex
+name:                hb7-bootstrap-reflex
 version:             0.1.0.0
-synopsis:            Using boostrap with reflex
-description:         Initial steps to start using boostrap with reflex. In addition to that,
+synopsis:            Using bootstrap with reflex
+description:         Initial steps to start using bootstrap with reflex. In addition to that,
                      this sets a cabal file to build a ghcjs-reflex-based app.
                      See README.md -file.
 license:             BSD2

@@ -1,11 +1,11 @@
 
 # hb7 - bootstrap-reflex
 
-This time we want to apply bootstrap 4 (alpha6) and build a project
+This time we want to apply bootstrap 4 (beta) and build a project
 with cabal. We imitate barebones of the dashbore-example as seen at
-the [bs4 dashboard example](https://v4-alpha.getbootstrap.com/examples/dashboard/)
+the [bs4 dashboard example](http://getbootstrap.com/docs/4.0/examples/dashboard/)
 or at [bs4 guide example](https://www.codeply.com/go/KrUO8QpyXP/bootstrap-4-dashboard)
-(see [boostrap4.guide](http://bootstrap4.guide/examples.html)).
+(see [bootstrap4.guide](http://getbootstrap.com/docs/4.0/examples/)).
 
 
 
@@ -63,20 +63,20 @@ to
 ```
 dist/build/bs4reflex/bs4reflex.jsexe/index.html
 ```
-or edit the file. (See [boostrap 4](https://v4-alpha.getbootstrap.com/).)
+or edit the file. (See [bootstrap 4](https://v4-alpha.getbootstrap.com/).)
 The other stylesheet-links
 and script-tag for scripts.js are generated in the Main.hs.  The
 copied index.html contains links to the aforementioned styles.css and
-scripts.js.
+scripts.js. 
 
 After these changes, you can open the index.html with your browser.
 
 Note that if you edit the index.html (at the
 dist/build/bs4reflex/bs4reflex.jsexe -directory), it won't be replaced
 by build process later. External css-libs should be put there, e.g.
-bootstrap, jquery and tether, to get the bootstrat working.
+bootstrap, jquery and popper, to get the bootstrap working.
 
-Note that with v4-beta the tether has changed to the popper-lib.
+(Note that with v4-beta the tether has changed to the popper-lib.)
 
 
 The scripts.js handles submenu at the sidebar and styles.css is used to

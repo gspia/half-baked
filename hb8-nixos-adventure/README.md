@@ -31,7 +31,7 @@ below for user configuration).
 
 ### Firewall
 
-'''
+```
   networking.firewall = {
     enable = true;
     # networking.firewall.allowPing = true;
@@ -44,21 +44,21 @@ below for user configuration).
     '';
     # iptables-save -I INPUT -p tcp -m tcp -s 192.168.0.zzz --dport yyy -j ACCEPT
   };
-'''
+```
 
 And use ssh (the port ssh uses is opened above):
 
-'''
+```
   # Enable the OpenSSH daemon.
   # services.openssh.enable = false;
   services.openssh.enable = true;
   services.openssh.ports = [ xxx ];
   services.openssh.forwardX11 = true;
-'''
+```
 
 for which we need the key:
 
-'''
+```
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.<username> = {
     isNormalUser = true;
@@ -69,11 +69,11 @@ for which we need the key:
     extraGroups = [ "wheel" "networkmanager" "audio" "video"];
     openssh.authorizedKeys.keys = [ "your key goes here" ];
   };
-'''
+```
 
 ### System-wide packages
 
-'''
+```
   environment.systemPackages = with pkgs; [
     # General
     wget bash tmux zsh # oh-my-zsh
@@ -126,7 +126,7 @@ for which we need the key:
     # Other
     firefox chromium conkeror
     elinks lynx w3m pandoc xclip hexchat
-'''
+```
 
 Intrestingly, kde had/has some screen update problems (it produces some junk 
 on the screen when using mouse or writing text with editor), and to find out 
@@ -137,7 +137,7 @@ through ssh the desktop manager really doesn't matter so it is kde now.
 
 Fonts
 
-'''
+```
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
@@ -158,7 +158,7 @@ Fonts
     ];
     #fontconfig.dpi = 192;
   };
-'''
+```
 
 
 ## User config
@@ -179,9 +179,9 @@ for further ideas.
 ### How to use environments?
 
 To start shell with some dev tools:
-'''
+```
 nix-shell -p ghcEnv
-'''
+```
 
 (You may build the env first with 'nix-build "<nixpkgs>" -A ghcEnv'.)
 
@@ -237,61 +237,61 @@ The .tmux.conf file adds some moving commands: M-h, M-j, M-k, M-l work directly.
 ## Some useful nix-commands
 
 ### Update
-'''
+```
 nix-channel --update nixos
 nixos-rebuild test
 nixos-rebuild switch
-'''
+```
 
 ### Garbage collection 
 
 Unstable and occasional building & installing eats disk capacity. 
-'''
+```
 nix-collect-garbage --delete-older-than 15d
-'''
+```
 
 ### Package management
 
 To get package definitions:
-'''
+```
 git clone git://github.com/NixOS/nixpkgs.git
-'''
+```
 
 To show user-installed packages:
-'''
+```
 nix-env -q
-'''
+```
 
 To remove package:
-'''
+```
 nix-env -e packagename
-'''
+```
 
 To install package:
-'''
+```
 nix-env -f "<nixpkgs>" -iA haskellPackages.packagename
 nix-env -iA nixos.oh-my-zsh
-'''
+```
 and if you are going to use zsh with oh-my-zsh, then maybe
-'''
+```
 cp -v $(nix-env -q --out-path oh-my-zsh | cut -d' ' -f3)/share/oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-'''
+```
 
 To list Haskell-packages:
-'''
+```
 nix-env -f "<nixpkgs>" -qaP -A haskellPackages
-'''
+```
 
 To upgrade packages:
-'''
+```
 nix-env -u
-'''
+```
 
 To build and use a dev env (assuming the environment defined as shown above):
-'''
+```
 nix-build "<nixpkgs>" -A ghcEnv
 nix-shell -p ghcEnv
-'''
+```
 
 ## Nix, reflex-libs, reflex based dev
 
@@ -311,26 +311,26 @@ if it is possible to
 
 If the lib has default.nix, shell.nix and libname.nix, as shown, the the above 
 items work with one minor irritation. The following commands work
-'''
+```
 nix-shell
 nix-build
 path-to-reflex-platform/work-on ghc ./libname.nix
-'''
+```
 while
-'''
+```
 path-to-reflex-platform/work-on ghcjs ./libname.nix
 path-to-reflex-platform/work-on ghcjs ./libname.nix --argstr "compiler" "ghcjs" --argstr "ghcjs-base" "ghcjs-base"
-'''
+```
 didn't. Note that
-'''
+```
 nix-shell --argstr "compiler" "ghcjs" 
-'''
+```
 does work, this is the item 4) above. In this case, in nix-shell, it is 
 possible to
-'''
+```
 cabal configure --ghcjs
 cabal build
-'''
+```
 and build artefacts can be found somewhere from dist-directory.
 
 All this is achieved by using a few default parameters at default.nix, 

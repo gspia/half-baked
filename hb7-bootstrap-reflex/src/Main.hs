@@ -1,5 +1,5 @@
 {-
-  Idea shortly: apply boostrap (4, alpha6) and construct some barebones
+  Idea shortly: apply bootstrap (4, alpha6) and construct some barebones
   of the https://v4-alpha.getbootstrap.com/examples/dashboard/ -example.
   Or https://www.codeply.com/go/KrUO8QpyXP/bootstrap-4-dashboard -example
   (see http://bootstrap4.guide/examples.html).

@@ -47,7 +47,7 @@ Especially:
    Note that the server is essentially the same in both.
 
 7. [Reflex - bootstrap 4](https://github.com/gspia/half-baked/tree/master/hb7-bootstrap-reflex).
-   Apply boostrap css and build a small ui with fixed top nav and side bar.
+   Apply bootstrap css and build a small ui with fixed top nav and side bar.
 
 8. [Nixos adventure](https://github.com/gspia/half-baked/tree/master/hb8-nixos-adventure).
    To make reflex development fluent and practical, it is good to know 
