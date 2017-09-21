@@ -164,7 +164,7 @@ Fonts
 ## User config
 
 The provided 
-[config](https://github.com/gspia/half-baked/hb8-nixos-adventure/config.nix)
+[config](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/config.nix)
 takes ideas from the following 
 [config](https://github.com/ardumont/dot-files/blob/master/.nixpkgs/config.nix).
 
@@ -208,7 +208,7 @@ installation path with a bit different name was ok, and then using PlugInstall
 and PlugUpdate inside vim.  At the same time this helped to learn
 some nice commands like the ones given in easymotion-plugin.
 Here you may find some 
-[notes](https://github.com/gspia/half-baked/hb8-nixos-adventure/vimtips.txt) 
+[notes](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/vimtips.txt) 
 about the plugins and the short-cut keys.
 
 Some additions: [delimitMate](https://github.com/Raimondi/delimitMate), 
@@ -371,13 +371,14 @@ new to you, the blog is super great introduction to the topic.
 ### Ghcid turbo-charging for reflex-dev
 
 Ghcid can be turbo-charged with appropriate 
-[.ghci-file](https://github.com/gspia/half-baked/hb8-nixos-adventure/.ghci), 
-a short [shell script](https://github.com/gspia/half-baked/hb8-nixos-adventure/dev-server.sh)
+[.ghci-file](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/.ghci), 
+a short 
+[shell script](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/dev-server.sh)
 and with few lines of jsaddle-wai related 
-[code](https://github.com/gspia/half-baked/hb8-nixos-adventure/jswai.hs) 
+[code](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/jswai.hs) 
 so that it is possible to see the changes directly in the web browser that is 
 used to test/see the results. If you put the 
-[index2.html](https://github.com/gspia/half-baked/hb8-nixos-adventure/index2.html) 
+[index2.html](https://github.com/gspia/half-baked/blob/master/hb8-nixos-adventure/index2.html) 
 into the static-directory, you can: 
 
  1) Use work-on ghc, that is, case 1) above, and then start ghcid, that is, 
