@@ -1,0 +1,290 @@
+There are some vim-plugins, for which you have to generate
+the helpfiles yourself.
+
+
+
+Folding
+za zA zO zC zR
+
+
+Shortly about plugins:
+
+
+Does not seem to work (that is, not install).
+Plug 'jgdavey/tslime.vim'
+https://github.com/jgdavey/tslime.vim
+You have to make your own key-mappings to use tslime.
+It helps to copy content between tmux and vim.
+
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+https://github.com/Shougo/vimproc.vim
+:help vimproc
+Vimproc provides commands to replace :! and :read.
+
+Plug 'ervandew/supertab'
+https://github.com/ervandew/supertab
+:help supertab
+Completion with <tab> or <s-tab> in insert mode.
+
+(Plug 'neomake/neomake' doesn't seem to work)
+Plug 'benekastah/neomake'
+:help Neomake
+https://github.com/neomake/neomake
+Probably no need to touch in anyway ("it just works").
+
+Plug 'moll/vim-bbye'
+https://github.com/moll/vim-bbye
+Closing buffers and leaving window layout.
+Instead of :bd write :Bdelete 
+A keymap for easy access to :Bdelete?
+
+Plug 'nathanaelkane/vim-indent-guides'
+https://github.com/nathanaelkane/vim-indent-guides
+:help indent-guides
+,ig  - toggle guides (a default mapping)
+
+Plug 'vim-scripts/gitignore'
+https://github.com/vim-scripts/gitignore
+:help gitignore  - ok?
+Reads the .gitignore file from the directory vim has been launched.
+Helps tab-completion to wildignore the files gitignore points to.
+
+
+" Git
+Plug 'tpope/vim-fugitive'
+https://github.com/tpope/vim-fugitive
+:help fugitive
+E.g. git <cmd>  or  :Gstatus (see help)
+
+Plug 'int3/vim-extradite'
+https://github.com/int3/vim-extradite
+:help extradite
+A git commit / log browser extending the above figutive-plugin.
+
+
+" Bars, panels, and files
+Plug 'scrooloose/nerdtree'
+https://github.com/scrooloose/nerdtree
+:help nerdtree
+,f
+,F
+
+Plug 'vim-airline/vim-airline'
+https://github.com/vim-airline/vim-airline
+:help airline
+Seems to work well out of the box (.vimrc sets fonts).
+
+
+Plug 'ctrlpvim/ctrlp.vim'
+https://github.com/ctrlpvim/ctrlp.vim
+:help ctrlp
+Find files easily. Note that <esc> escapes from ctrlp-buffer.
+<c-p> and ,     - that is <leader><space>
+
+Plug 'majutsushi/tagbar'
+https://github.com/majutsushi/tagbar
+:help tagbar
+:TagbarOpen :TagbarClose :TagbarToggle
+
+" Text manipulation
+Plug 'vim-scripts/Align'
+https://github.com/vim-scripts/Align
+:help align-contents (or :help align)
+:<,>Align myFun   - will align on the myFun-string on visual
+The following mappings are defined. It is easy to define more.
+,a=   - aling on =
+,a,   - aling on ,
+,a|   - aling on |
+,ap   - prompt for align character
+
+
+Plug 'simnalamburt/vim-mundo'
+https://github.com/simnalamburt/vim-mundo
+:help mundo
+Helps to use undo-tree (if having several variants of the same edit).
+
+Plug 'tpope/vim-commentary'
+https://github.com/tpope/vim-commentary
+:help commentary
+gc   - comment toggle
+
+Plug 'godlygeek/tabular'
+https://github.com/godlygeek/tabular
+:help tabular
+Seems to be similar to Align. Can take patterns.
+
+Plug 'michaeljsmith/vim-indent-object'
+https://github.com/michaeljsmith/vim-indent-object
+:help indent-object
+This brings new text objects, ai and aI, ii and iI to be used
+e.g. with copying (yanking) and deleting: 
+yai  - yank inteded lines and line above this indentation level
+dii  - delete the lines "intended in the level of this line"
+
+Plug 'easymotion/vim-easymotion'
+https://github.com/easymotion/vim-easymotion
+:help easymotion  or :help easymotion-contents
+"Takes the <count> out of some moving commands 
+(f, F, w, W, b, B, e, E, ge, gE, j, k, n, N, s)."
+,,w   - and then select a letter (works at least on hs-files)
+
+Plug 'ConradIrwin/vim-bracketed-paste'
+https://github.com/ConradIrwin/vim-bracketed-paste
+:help bracketed-paste  - ?
+This should set automatically :set paste on certain terminals
+when pasteing things.
+
+" Allow pane movement to jump out of vim into tmux
+Plug 'christoomey/vim-tmux-navigator'
+https://github.com/christoomey/vim-tmux-navigator
+:help tmux-navigator
+Waiting for some nice keymaps...
+
+" Haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+https://github.com/neovimhaskell/haskell-vim
+Syntax highlighting and indentation. 
+This can be configurated. See www-page.
+
+" Plug 'enomsg/vim-haskellConcealPlus', { 'for': 'haskell' }
+Used for a while, now trying without.
+
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+https://github.com/eagletmt/ghcmod-vim
+Requires ghc-mod (haskell package) and vimproc.
+Configured in vimrc.haskell. 
+,<cr>   - that is , followed by enter, "clears selection"
+,ht   - type under cursor
+,hT   - insert type
+
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+https://github.com/eagletmt/neco-ghc
+Completition plugin.
+
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+https://github.com/Twinside/vim-hoogle
+,hh  - under cursor
+,hH  - prompt
+,hi  - detailed info
+,hz  - close hoogle window
+
+Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+https://github.com/mpickering/hlint-refactor-vim
+,hr  - apply one suggestion
+,hR  - apply all suggestions
+
+" Colorscheme
+Plug 'vim-scripts/wombat256.vim'
+https://github.com/vim-scripts/wombat256.vim
+
+
+Extra-plugis (user set in plugins.vim -file)
+Plug 'Raimondi/delimitMate'
+https://github.com/Raimondi/delimitMate
+
+
+Plug 'lokikl/vim-ctrlp-ag'
+https://github.com/lokikl/vim-ctrlp-ag
+
+Plug 'gabesoft/vim-ags'
+https://github.com/gabesoft/vim-ags
+:help ags
+
+
+
+
+Other configurations
+
+,r   - redraw
+,ma  - mouse mode on
+,mo  - mouse mode off
+,e   - file prompt with current path
+,u   - mundo toggle
+,<space> - ctrlp
+
+The following don't seem to work on console vim.
+,y   - copy to os clipboard
+,d   - delete and copy 
+,p   - paste from os clipboard
+
+<c-h>  - move to left  - also over tmux
+<c-k>  - move to up    - also over tmux
+<c-j>  - move to down  - also over tmux
+<c-l>  - move to right - also over tmux
+
+,<cr>  - disable highlighting
+
+,sh  - window split
+,sk  - window split
+,sj  - window split
+,sl  - window split
+
+,bp  - previous buffer
+,bn  - next buffer
+,bo  - close other windows
+,bd  - delete buffer leave window
+,b<space> - crlp buffers
+
+,ss  - toggle spellchecking
+
+If these are for tslime, not yet. More to MacVim?
+,rs  - send selection to tmux 
+,rv  - tmux vars
+
+,f   - togglefindnerd
+,F   - nerdtreetoggle
+
+,a=  - align on =
+,a,  - align on ,
+,a|  - align on |
+,ap  - prompt for char to align on
+Align <string>  - align on <string>
+
+,tt  - tagbartoggle
+,tg  - generate haskell tags
+
+,gs  - git status
+,gg  - copen ggrep
+,gl  - extradite
+,gd  - gdiff
+,gb  - gblame
+,g?  - committed files
+
+<C-\>  - = :cs find c ... hmm
+
+Hoogle
+,hh  - word under cursor
+,hH  - prompt
+,hi  - detailed info
+,hI  - detailed info prompt
+,hz  - close the hoogle window
+
+,hr  - refactor 1
+,hR  - refactor all
+
+,ht  - type
+,hT  - type insert
+,hc  - neomake ghcmod
+,hl  - neomake hlint   - and then :lne :lp (or :lN)
+
+,h.  - pointfree
+,h>  - pointful
+
+<ctrl-space>  - omnicompletition (try it in insert mode)
+
+Ag usage, see ags help
+:Ags 
+,ag   - ag with ctrlp
+,agl  - CtrlPagLocate  - e.g. hit space and a word to search
+,agp  - CtrlPagPrevious
+
+If you want to change the tab-size, look for places in 
+.vimrc and in vimrc.haskell.
+
+
+Location buffer movements:
+:lne  and  :lpre (or :lN)
+
+Quickfix buffer movments:
+:cn 
+

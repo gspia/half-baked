@@ -1,0 +1,6 @@
+:set prompt "> "
+:set -isrc:examples:test
+:load examples/themesBs.hs
+-- :load examples/themesFou.hs
+-- :load examples/themesSem.hs
+-- :load examples/themesW3.hs

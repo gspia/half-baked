@@ -38,6 +38,8 @@ import GHCJS.Marshal
 import GHCJS.Types
 import qualified GHCJS.DOM.WebSocket as GDOM
 import GHCJS.DOM.Blob
+-- import GHCJS.DOM
+-- import Reflex
 import GHCJS.DOM.FileReader
 import GHCJS.DOM.File (getName)
 import GHCJS.DOM.Types (File, UIEvent, liftJSM, MonadJSM, FromJSString, ArrayBuffer)
@@ -51,8 +53,26 @@ main :: IO ()
 main = mainWidget $ do
   header
   filesD <- fileInput $ def & attributes .~ constDyn ("multiple" =: "multiple")
-  let filesEv = updated $ _fileInput_value filesD
-      url = "ws://localhost:8000/msgHandler" :: T.Text
+  host <- liftJSM $ getLocationHost
+  protocol <- liftJSM $ getLocationProtocol
+  let addr = "192.168.0.105"
+  -- -- let addr = "localhost"
+  let wsProtocol = case protocol of
+        ""       -> "ws:" -- We're in GHC
+        "about:" -> "ws:" -- We're in GHC
+        "file:"  -> "ws:"
+        "http:"  -> "ws:"
+        "https:" -> "wss:"
+        _ -> Prelude.error $ "Unrecognized protocol: " <> show protocol
+      wsHost = case protocol of
+        ""       -> addr <> ":8000"
+        "about:" -> addr <> ":8000" -- We're in GHC
+        "file:"  -> addr <> ":8000"
+        _        -> addr <> ":8000"
+      filesEv = updated $ _fileInput_value filesD
+      -- url = "ws://localhost:8000/msgHandler" :: T.Text
+      -- url = "ws://192.168.0.105:8000/msgHandler" :: T.Text
+      url =  wsProtocol <> "//" <> wsHost <> "/msgHandler" :: T.Text
   -- The following way to read and send files seems to work.
   ws <- GDOM.newWebSocket url ([]::[T.Text])
   el "div" . widgetHold blank . ffor filesEv $ \fls -> do
@@ -148,16 +168,18 @@ openWebSocket
     => Event t [DB.ByteString]
     -> m (Event t ())
 openWebSocket bsMsg = do
-    rec ws <- webSocket "ws://localhost:8000/msgHandler" $
-          def & webSocketConfig_send .~ send
-        websocketReady <- holdDyn False $ True <$ _webSocket_open ws
-        websocketNotReady <- (return . fmap not) websocketReady
-        buffer <- foldDyn (++) [] $ gateDyn websocketNotReady bsMsg
-        let send = leftmost
-                     [ gateDyn websocketReady bsMsg
-                     , tag (current buffer) (_webSocket_open ws)
-                     ]
-    return $ _webSocket_open ws
+  rec ws <- webSocket "ws://localhost:8000/msgHandler" $
+  -- rec ws <- webSocket (wsProtocol <> "//" <> wsHost <> "/msgHandler") $
+        def & webSocketConfig_send .~ send
+      websocketReady <- holdDyn False $ True <$ _webSocket_open ws
+      websocketNotReady <- (return . fmap not) websocketReady
+      buffer <- foldDyn (++) [] $ gateDyn websocketNotReady bsMsg
+      let send = leftmost
+                   [ gateDyn websocketReady bsMsg
+                   , tag (current buffer) (_webSocket_open ws)
+                   ]
+  return $ _webSocket_open ws
+
 
 
 {-

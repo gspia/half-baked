@@ -1,21 +1,25 @@
 # Half-baked samples
 
 A series of half-baked things hopefully less half-baked later. These came out
-when I was trying to find solutions to different problems when working with
+when I was trying to find solutions to different problems when (learning) working 
+with
 [Purescript](http://www.purescript.org/), [Haskell](https://www.haskell.org/)
-and [Reflex-platform](https://github.com/reflex-frp/reflex-platform). 
+and [Reflex-platform](https://github.com/reflex-frp/reflex-platform).
 My intention is to occasionally update the sample list while learning.
 
 Some of the following may work as examples or quick starting points, in case
-you are following somewhat similar thought path as what produced these.  
+you are following somewhat similar thought path as what produced these.
 At best, some of the following half-baked ideas/samples may save your time,
-and at worst, exactly the opposite. If you have ideas, comments, suggestion,
-etc., I'd like to hear about those and please send them in. 
+and at worst, exactly the opposite (these are/were made while learning).
+If you have ideas, comments, suggestion,
+etc., I'd like to hear about those and please, do send them in.
+
 
 Especially:
 - alternative (and or better) ways to get the same effect
-- code improvements 
+- code improvements
 - etc.
+
 
 
 
@@ -44,3 +48,11 @@ Especially:
 
 7. [Reflex - bootstrap 4](https://github.com/gspia/half-baked/tree/master/hb7-bootstrap-reflex).
    Apply boostrap css and build a small ui with fixed top nav and side bar.
+
+8. [Nixos adventure](https://github.com/gspia/half-baked/tree/master/hb8-nixos-adventure).
+   To make reflex development fluent and practical, it is good to know 
+   a little bit about nix-expressions. To facilitate learning, my spare machine got
+   Nixos. This also shows one way to organize nix-files for developing 
+   with Reflex.
+
+

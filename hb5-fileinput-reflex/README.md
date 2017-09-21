@@ -33,11 +33,16 @@ This is based on reflex examples , e.g.
   - [reflex-examples](https://github.com/reflex-frp/reflex-examples)
 
 
-Other tutorials/docs
+Other tutorials
+
+  - [An introduction to reflex](https://blog.qfpl.io/posts/reflex/basics/introduction/)
+  - [A Beginner-friendly Step by Step Tutorial for Reflex-Dom](https://github.com/hansroland/reflex-dom-inbits/blob/master/tutorial.md)
+  - [Real-world-reflex](https://github.com/mightybyte/real-world-reflex/blob/master/index.md)
+
+Other links
 
   - [reflex docs](http://docs.reflex-frp.org/en/latest/architecture.html)
   - [Quickref - reflex](https://github.com/reflex-frp/reflex/blob/develop/Quickref.md)
   - [Quickref - reflex-dom](https://github.com/reflex-frp/reflex-dom/blob/develop/Quickref.md)
-  - [Real-world-reflex](https://github.com/mightybyte/real-world-reflex/blob/master/index.md)
 
 

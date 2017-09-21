@@ -74,17 +74,35 @@ After these changes, you can open the index.html with your browser.
 Note that if you edit the index.html (at the
 dist/build/bs4reflex/bs4reflex.jsexe -directory), it won't be replaced
 by build process later. External css-libs should be put there, e.g.
-bootsrap, jquery and tether, to get the bootstrat working.
+bootstrap, jquery and tether, to get the bootstrat working.
+
+Note that with v4-beta the tether has changed to the popper-lib.
+
 
 The scripts.js handles submenu at the sidebar and styles.css is used to
 position the sidebar relative to the top navigation bar.
 
+## Next steps
+
+Be sure to check
+
+  - [reflex-dom-semui](https://github.com/reflex-frp/reflex-dom-semui)
+  - [reflex-material](https://github.com/alasconnect/reflex-material)
+  - [reflex-material-bootstrap](https://github.com/hexresearch/reflex-material-bootstrap)
+
 
 ## Links
 
+
+Tutorials and examples
+  - [An introduction to reflex](https://blog.qfpl.io/posts/reflex/basics/introduction/)
+  - [A Beginner-friendly Step by Step Tutorial for Reflex-Dom](https://github.com/hansroland/reflex-dom-inbits/blob/master/tutorial.md)
+  - [reflex-examples](https://github.com/reflex-frp/reflex-examples)
+  - [Real-world-reflex](https://github.com/mightybyte/real-world-reflex/blob/master/index.md)
+
+Other links
+
   - [reflex-dom-contrib](https://github.com/reflex-frp/reflex-dom-contrib)
-  - [reflex-dom-semui](https://github.com/reflex-frp/reflex-dom-semui)
-  - [reflex-material](https://github.com/alasconnect/reflex-material)
   - [reflex docs](http://docs.reflex-frp.org/en/latest/)
   - [Quickref - reflex](https://github.com/reflex-frp/reflex/blob/develop/Quickref.md)
   - [Quickref - reflex-dom](https://github.com/reflex-frp/reflex-dom/blob/develop/Quickref.md)

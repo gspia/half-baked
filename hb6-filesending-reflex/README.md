@@ -44,18 +44,33 @@ the full path is
 
 (Ensure that you have downloads-directory.)
 
-Go to src/Main.jsexe-dir and open index.html with your browser. Then
+Go to client/Main.jsexe-dir and open index.html with your browser. Then
 you should be able to select several files and be able to send them to the server. Alternatively, 
-you may copy the contents of src/Main.jsexe-dir to static-directory and let the 
+you may copy the contents of client/Main.jsexe-dir to static-directory (make the static-directory first) and let the 
 server serve the file (point the browser to the localhost:8000)
+
+## Next steps
+
+Be sure to check
+
+  - [reflex-websockets](https://github.com/ElvishJerricco/reflex-websockets)
+  - [websockets-reflex](https://github.com/dalaing/websockets-reflex)
+  - [reflex-webocket-interface](https://github.com/dfordivam/reflex-websocket-interface)
+
 
 ## Links
 
+Tutorials and examples
+  - [An introduction to reflex](https://blog.qfpl.io/posts/reflex/basics/introduction/)
+  - [A Beginner-friendly Step by Step Tutorial for Reflex-Dom](https://github.com/hansroland/reflex-dom-inbits/blob/master/tutorial.md)
   - [reflex-examples](https://github.com/reflex-frp/reflex-examples)
+  - [Real-world-reflex](https://github.com/mightybyte/real-world-reflex/blob/master/index.md)
+
+Other links
+
   - [hsnippet](https://github.com/mightybyte/hsnippet)
   - [reflex docs](http://docs.reflex-frp.org/en/latest/architecture.html)
   - [Quickref - reflex](https://github.com/reflex-frp/reflex/blob/develop/Quickref.md)
   - [Quickref - reflex-dom](https://github.com/reflex-frp/reflex-dom/blob/develop/Quickref.md)
-  - [Real-world-reflex](https://github.com/mightybyte/real-world-reflex/blob/master/index.md)
 
 
