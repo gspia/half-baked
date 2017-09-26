@@ -357,10 +357,6 @@ Further, note that 1) gives fluent and quick
 dev cycle, 3) helps the editor while 4) is semi-quick and 
 no editor goodies (yet). See ghcid-section below.
 
-Since ghcjs-base and webkitgtk don't work at the same time, we use empty 
-defaults in the arguments at the libname.nix. 
-
-
 To see more polished setup, check
 [Queensland FP lab intro to functional reactive programming](https://blog.qfpl.io/projects/reflex/). 
 The exercises contain good nix-file organization. And if the rfp and reflex is 
